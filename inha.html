@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>모두의 학생부종합전형 가이드북 사례분석 몰입 극장(인하대편)</title>
+<style>
+:root{
+  --bg:#eef7ff; --ink:#08213f; --muted:#45627f; --navy:#063b7a; --blue:#0b74d1; --sky:#dff3ff;
+  --mint:#bdf4e5; --yellow:#ffe56b; --card:#ffffff; --line:#c7dfef; --shadow:0 18px 50px rgba(8,40,80,.16);
+  --radius:28px;
+}
+*{box-sizing:border-box} html,body{margin:0;height:100%;font-family:Pretendard,"Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;color:var(--ink);background:
+ radial-gradient(circle at 18% -10%, #d7f2ff 0, transparent 38%),
+ linear-gradient(135deg,#f9fdff 0%,#edf7ff 45%,#eafcff 100%);}
+body{overflow:hidden}
+.top{
+ height:112px;display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;padding:18px 30px;
+ background:linear-gradient(100deg,#071b45,#0b58a2 55%,#22b4d7); color:white;box-shadow:0 10px 35px rgba(4,36,83,.22);
+ position:relative;z-index:5;
+}
+.logo{width:58px;height:58px;border-radius:18px;background:linear-gradient(145deg,#fff27b,#aef4dc);display:grid;place-items:center;color:#073057;font-weight:900;font-size:24px;box-shadow:0 12px 24px rgba(0,0,0,.18)}
+.title h1{margin:0;font-size:clamp(22px,2.8vw,42px);line-height:1.05;letter-spacing:-.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.copy{display:inline-block;margin-top:8px;background:white;color:#0b2b50;border-radius:999px;padding:8px 18px;font-weight:900;font-size:16px}
+.badge{border:1px solid rgba(255,255,255,.38);background:rgba(255,255,255,.16);padding:12px 22px;border-radius:999px;font-weight:900;white-space:nowrap}
+.tabs{height:64px;display:flex;gap:12px;align-items:center;padding:0 30px;background:rgba(255,255,255,.74);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);position:relative;z-index:4}
+.tab{border:1px solid var(--line);background:white;border-radius:999px;padding:13px 24px;font-weight:900;color:#0a3a65;cursor:pointer;box-shadow:0 8px 20px rgba(20,70,110,.08)}
+.tab.active{background:linear-gradient(135deg,#ffe96c,#fff5b8);border-color:#f1d55a;color:#052b52}
+main{height:calc(100vh - 176px);overflow:hidden}
+.panel{display:none;height:100%;animation:fade .35s ease}
+.panel.active{display:block}@keyframes fade{from{opacity:.4;transform:translateY(8px)}to{opacity:1;transform:none}}
+.reading{height:100%;overflow:auto;padding:26px 34px 46px}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;margin-bottom:18px}
+.bigcard{background:linear-gradient(135deg,#ffffff 0%,#f5fbff 66%,#fff8cf 100%);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:30px}
+.kicker{font-weight:1000;color:#0877b9;letter-spacing:.06em;margin-bottom:10px}
+.bigcard h2{font-size:clamp(32px,4.4vw,60px);line-height:1.05;letter-spacing:-.055em;margin:0 0 18px}
+.bigcard p{font-size:20px;line-height:1.75;font-weight:700;color:#173a5b}.hl{background:linear-gradient(transparent 55%,rgba(255,229,107,.9) 0);padding:0 3px;border-radius:4px}
+.metric{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+.mcard{background:white;border:1px solid var(--line);border-radius:22px;padding:18px}
+.mcard b{font-size:42px;color:#0470bf}.bar{height:10px;border-radius:999px;background:#dcecf5;margin:10px 0;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,#0071bc,#26d0ce,#ffe86b)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.info{background:white;border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:0 10px 28px rgba(14,56,97,.08)}.info h3{margin:0 0 12px;color:#075f9f;font-size:22px}.info li{margin:8px 0;line-height:1.55;font-weight:650}
+.theater{height:100%;display:grid;grid-template-columns:300px minmax(560px,1fr) 360px;gap:14px;padding:18px;background:linear-gradient(180deg,#f6fbff,#eaf6ff)}
+.queue,.stage,.analysis{border-radius:26px;border:1px solid var(--line);box-shadow:var(--shadow);background:white;overflow:hidden}
+.queue{display:flex;flex-direction:column}.qhead{padding:20px 22px;background:linear-gradient(145deg,#073b74,#0e77ba);color:white}.qhead h2{margin:0 0 8px}.qhead p{margin:0;line-height:1.5;font-weight:700;color:#d9f3ff}.qlist{overflow:auto;padding:12px}
+.case{width:100%;text-align:left;border:1px solid #c9e0ee;background:linear-gradient(135deg,#ffffff,#effaff);border-radius:20px;padding:14px 14px;margin-bottom:10px;cursor:pointer;transition:.2s;min-height:86px}
+.case:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,70,130,.12)}.case.active{background:linear-gradient(135deg,#fff7b0,#e6fbff);border-color:#ffe46a;box-shadow:0 14px 30px rgba(255,200,45,.25)}
+.case .tag{display:inline-block;background:#c7fff0;color:#005a72;border-radius:999px;padding:5px 10px;font-weight:900;font-size:12px;margin-bottom:8px}.case strong{display:block;font-size:17px;line-height:1.32}
+.stage{background:#06111c;color:white;display:flex;flex-direction:column}.stageTop{height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;border-bottom:1px solid rgba(255,255,255,.12);background:#07182b}
+.stageTitle{font-weight:900}.controls button{border:0;border-radius:999px;background:white;color:#0a2d52;font-weight:900;padding:9px 14px;margin-left:6px;cursor:pointer}.controls button.primary{background:#ffe66a}
+.viewer{position:relative;flex:1;overflow:auto;padding:26px;background:
+ radial-gradient(circle at 30% 0%,rgba(32,157,221,.28),transparent 38%),
+ linear-gradient(135deg,#02101d,#0a233b)}
+.doc{margin:auto;max-width:920px;min-height:100%;background:#fff;color:#0b1a2c;border-radius:22px;padding:34px;box-shadow:0 20px 80px rgba(0,0,0,.5);transform-origin:top center;transition:transform .2s}
+.docBadge{display:inline-flex;gap:8px;background:#ffe76e;border-radius:999px;padding:10px 16px;font-weight:1000;margin-bottom:16px}.doc h2{font-size:34px;letter-spacing:-.04em;margin:10px 0 18px}.doc p,.doc li{font-size:18px;line-height:1.75;font-weight:650}.sourceBox{border:3px solid #111;border-radius:8px;padding:22px;margin:16px 0;background:#fff}.quote{border-left:8px solid #0b81ce;background:#eef9ff;padding:18px 20px;border-radius:16px;margin:16px 0}.mark{background:linear-gradient(transparent 50%,rgba(255,231,93,.8) 0);font-weight:900}.chip{display:inline-block;border-radius:999px;padding:7px 12px;margin:4px;background:#e6f6ff;color:#075f9f;font-weight:900}
+.analysis{display:flex;flex-direction:column;background:linear-gradient(180deg,#ffffff,#f5fdff)}.aHead{padding:24px;border-bottom:1px solid var(--line);background:linear-gradient(135deg,#e9fbff,#fffce3)}.tags span{display:inline-block;border-radius:999px;padding:7px 12px;margin:3px;background:#ddfff3;color:#006f7e;font-weight:900}.aHead h2{font-size:28px;line-height:1.15;margin:10px 0 0}.aBody{overflow:auto;padding:18px 22px}.lesson{background:white;border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:12px;box-shadow:0 8px 18px rgba(0,60,110,.06)}.lesson h3{margin:0 0 8px;color:#056da8}.lesson p{margin:0;font-size:17px;line-height:1.65;font-weight:650}.point{background:#fff8c8;border-color:#f2d65a}
+@media(max-width:1100px){body{overflow:auto}.top{height:auto;grid-template-columns:auto 1fr;padding:14px 18px}.badge{display:none}.tabs{height:auto;padding:10px 18px}.title h1{white-space:normal;font-size:26px}.theater{height:auto;grid-template-columns:1fr;padding:14px}.queue{max-height:260px}.stage,.analysis{min-height:520px}.hero,.grid{grid-template-columns:1fr}.metric{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="top">
+ <div class="logo">仁</div>
+ <div class="title">
+  <h1>모두의 학생부종합전형 가이드북 사례분석 몰입 극장(인하대편)</h1>
+  <div class="copy">Copyright@All Teachers</div>
+ </div>
+ <div class="badge">PDF 원문 기반 · 상담/연수 배포용</div>
+</header>
+<nav class="tabs">
+ <button class="tab active" data-tab="read">평가 읽기</button>
+ <button class="tab" data-tab="theater">사례분석 몰입극장</button>
+</nav>
+<main>
+<section id="read" class="panel active reading">
+ <div class="hero">
+  <div class="bigcard">
+   <div class="kicker">INHA ADMISSION READING MAP</div>
+   <h2>인하대는 <span class="hl">현재의 성과보다 성장 잠재력</span>을 읽습니다</h2>
+   <p>인하대학교 학생부종합전형은 학교생활기록부를 통해 지원자가 고교 생활에서 보여준 <span class="hl">학업 충실성, 진로·탐구의 깊이, 공동체 안에서의 태도</span>를 종합적으로 읽습니다. 평가요소는 기초학업역량, 진로탐구역량, 공동체역량입니다.</p>
+   <div class="metric">
+    <div class="mcard"><span>기초학업역량</span><br><b>50</b><div class="bar"><i style="width:50%"></i></div><small>학업능력 30 + 학습태도 20</small></div>
+    <div class="mcard"><span>진로탐구역량</span><br><b>30</b><div class="bar"><i style="width:30%"></i></div><small>진로관심 10 + 탐구역량 20</small></div>
+    <div class="mcard"><span>공동체역량</span><br><b>20</b><div class="bar"><i style="width:20%"></i></div><small>성실·리더십·배려·협업</small></div>
+   </div>
+  </div>
+  <div class="bigcard">
+   <div class="kicker">상담 포인트</div>
+   <h2 style="font-size:34px">학생에게 이렇게 읽혀주세요</h2>
+   <p>“성적만 보는 것이 아니라, <span class="hl">어떤 수업에서 어떻게 참여했고, 어떤 질문을 확장했으며, 공동체 안에서 어떤 태도로 성장했는지</span>가 중요하다.”</p>
+   <p>사례분석 몰입극장에서는 좌측 사례를 누르면 중앙 원문 카드와 우측 해설이 함께 바뀌도록 구성했습니다.</p>
+  </div>
+ </div>
+ <div class="grid">
+  <div class="info"><h3>① 기초학업역량</h3><ul><li>전체 교과 성취와 성적 추이</li><li>수업 참여도와 과목별 학습태도</li><li>부족한 부분을 확인하고 보완한 노력</li><li>교과 세특에 드러나는 능동성</li></ul></div>
+  <div class="info"><h3>② 진로탐구역량</h3><ul><li>희망진로 관련 과목 이수와 성취</li><li>진로 연계 활동 참여와 탐구 과정</li><li>습득한 지식의 깊이를 더한 노력</li><li>활동 이후의 지적 성장</li></ul></div>
+  <div class="info"><h3>③ 공동체역량</h3><ul><li>성실성, 적극성, 배려와 존중</li><li>공동체 발전을 위한 역할 수행</li><li>협업과 리더십의 실제 장면</li><li>출결·행특·창체 전반의 태도</li></ul></div>
+ </div>
+</section>
+<section id="theater" class="panel theater">
+ <aside class="queue">
+  <div class="qhead"><h2>사례 큐시트</h2><p>이화여대형 폼과 동일하게, 목록만 독립 스크롤됩니다. 사례를 누르면 중앙 원문과 우측 해설이 함께 바뀝니다.</p></div>
+  <div class="qlist" id="caseList"></div>
+ </aside>
+ <section class="stage">
+  <div class="stageTop">
+   <div class="stageTitle" id="stageTitle">기초학업역량 · 원문 p.12-13</div>
+   <div class="controls"><button class="primary" onclick="bigView()">원문 크게 보기</button><button onclick="zoom(0.1)">확대 +</button><button onclick="zoom(-0.1)">축소 -</button><button onclick="resetZoom()">원위치</button></div>
+  </div>
+  <div class="viewer" id="viewer"><div class="doc" id="doc"></div></div>
+ </section>
+ <aside class="analysis">
+  <div class="aHead"><div class="tags" id="tags"></div><h2 id="aTitle"></h2></div>
+  <div class="aBody" id="analysisBody"></div>
+ </aside>
+</section>
+</main>
+<script>
+const cases=[
+ {label:"평가모형 · p.12-13", type:"평가 읽기", title:"인하대 학생부종합전형 평가모형", stage:"평가모형 · 원문 p.12-13",
+ tags:["기초학업","진로탐구","공동체"], 
+ doc:`<div class="docBadge">평가모형 / 원문 p.12-13</div><h2>인하대학교는 어떤 인재를 선발하고자 하나요?</h2>
+ <div class="sourceBox"><p>인하대학교 학생부종합전형은 창학이념을 바탕으로 <span class="mark">현재의 성과가 아닌 성장 잠재력</span>을 갖춘 미래인재를 선발하려 합니다.</p><p>학업에 충실하고, 관심 분야에 열정을 지니며, 타인을 배려하는 마음으로 공동체를 긍정적으로 변화시키고자 노력하는 학생을 선발합니다.</p></div>
+ <p><span class="chip">기초학업역량</span><span class="chip">진로탐구역량</span><span class="chip">공동체역량</span></p>`,
+ analysis:["현재 성과만 보는 것이 아니라 고교 생활 속에서 드러난 성장 가능성을 함께 읽습니다.","상담에서는 학생에게 ‘점수’보다 ‘수업 참여 장면, 진로 탐구 과정, 공동체 안에서의 태도’를 함께 설명하는 것이 좋습니다.","인하대형 독해는 세 역량이 따로 떨어진 것이 아니라, 한 학생의 생활기록부 안에서 서로 연결되는지를 보는 방식입니다."],
+ point:["성적표만 보여주기보다 ‘수업에서 어떤 태도로 배웠는가’를 같이 말하게 하세요.","진로활동은 활동명보다 관심이 어떻게 깊어졌는지가 핵심입니다."]},
+ {label:"기초학업역량 · p.13-14", type:"좋은 사례", title:"학업능력과 학습태도를 함께 읽는 장면", stage:"기초학업역량 · 원문 p.13-14",
+ tags:["학업능력","학습태도","성적추이"],
+ doc:`<div class="docBadge">기초학업역량 / 원문 p.13-14</div><h2>대학 수학을 위한 기본 학업능력과 학습태도</h2>
+ <div class="sourceBox"><p>기초학업역량은 대학 수학에 필요한 기본적인 학업능력 및 학습태도를 평가합니다.</p><ul><li>전체적인 교과 성취는 어느 정도인가?</li><li>교과별, 학년별 성적 추이는 어떠한가?</li><li>수업 시간에 능동적으로 참여했는가?</li><li>부족한 부분을 확인하고 발전하기 위해 노력했는가?</li></ul></div>
+ <div class="quote"><b>상담에서 볼 문장</b><br>“성적이 전부가 아니라, 수업 중 참여와 보완 노력까지 함께 읽는다.”</div>`,
+ analysis:["기초학업역량은 단순 내신 순위가 아니라 원점수, 평균, 표준편차, 수강인원, 세특의 수업 참여 장면을 함께 읽는 관점입니다.","학생 상담에서는 ‘어떤 과목에서 강점이 보이는가’, ‘부족한 과목을 어떻게 보완했는가’를 질문하면 좋습니다.","평가자는 결과보다 학업 과정의 지속성, 능동성, 회복력을 함께 확인합니다."],
+ point:["원포인트 1: ‘성적이 낮은 과목’도 보완 과정이 기록되면 상담 소재가 됩니다.","원포인트 2: 세특 속 발표·질문·탐구 수행 장면은 학습태도를 보여주는 근거입니다."]},
+ {label:"진로탐구역량 · p.13-14", type:"좋은 사례", title:"관심 분야가 탐구 과정으로 깊어지는 기록", stage:"진로탐구역량 · 원문 p.13-14",
+ tags:["진로관심","탐구역량","지적성장"],
+ doc:`<div class="docBadge">진로탐구역량 / 원문 p.13-14</div><h2>진로개발을 위한 관심과 탐구활동</h2>
+ <div class="sourceBox"><p>진로탐구역량은 진로개발을 위한 관심 및 탐구활동을 평가합니다.</p><ul><li>희망진로 관련 교과목을 이수했으며 성취도는 어느 정도인가?</li><li>진로 연계 활동에 적극적으로 참여하고 노력했는가?</li><li>습득한 지식의 깊이를 더하기 위해 노력했는가?</li><li>다양한 활동 과정을 통해 지적 성장이 있었는가?</li></ul></div>
+ <div class="quote"><b>몰입해서 볼 글귀</b><br>‘진로’는 직업명을 반복하는 것이 아니라, <span class="mark">관심이 질문과 탐구 과정으로 확장되는 흐름</span>입니다.</div>`,
+ analysis:["진로탐구역량은 ‘○○학과 희망’이라는 문구보다 관련 과목 이수, 탐구 활동, 지적 성장의 연결성을 봅니다.","상담에서는 학생에게 ‘왜 이 주제를 선택했는지’, ‘탐구 후 생각이 어떻게 달라졌는지’를 말하게 해야 합니다.","좋은 기록은 활동 목록이 아니라 관심 → 질문 → 탐구 → 성찰의 흐름이 보입니다."],
+ point:["원포인트 1: 진로 관련 활동이 많지 않아도, 한 주제가 깊어지는 흐름이 있으면 강점이 됩니다.","원포인트 2: 교과 수업 안에서 진로 질문을 확장한 기록을 찾아주세요."]},
+ {label:"공동체역량 · p.14", type:"좋은 사례", title:"성실·배려·협업이 생활 속에서 드러나는 기록", stage:"공동체역량 · 원문 p.14",
+ tags:["성실성","배려","협업"],
+ doc:`<div class="docBadge">공동체역량 / 원문 p.14</div><h2>학교생활 속 가치관과 태도 읽기</h2>
+ <div class="sourceBox"><p>공동체역량은 학교생활을 통해 드러나는 공동체 내에서의 가치관 및 태도를 평가하며, 인성과 관련된 모든 사항을 살펴봅니다.</p><p>출결상황부터 행동특성 및 종합의견까지 학교생활기록부 전체 내용을 살펴보고 지원자의 성실성, 적극성, 배려심 및 존중 등을 평가합니다.</p></div>
+ <div class="quote">남들이 꺼리는 일을 맡아 책임을 다하는 모습, 수업 중 적극적으로 발표하는 모습, 친구와 함께 문제를 해결하는 모습이 모두 평가 장면이 됩니다.</div>`,
+ analysis:["공동체역량은 봉사시간의 양보다 학교생활 안에서 지속적으로 드러난 태도를 봅니다.","출결, 행특, 창체, 세특 전반에서 성실성·배려·협업이 반복적으로 드러나면 설득력이 높아집니다.","학생 상담에서는 ‘내가 맡았던 역할’과 ‘공동체에 남긴 변화’를 구체적으로 말하게 하는 것이 좋습니다."],
+ point:["원포인트 1: 리더십은 직책보다 실제로 해결한 문제와 기여가 중요합니다.","원포인트 2: 작은 실천도 반복성과 맥락이 있으면 공동체역량의 근거가 됩니다."]},
+ {label:"서류형 평가비율 · p.18-19", type:"평가기준", title:"인하미래인재 서류형 평가비율 읽기", stage:"서류형 평가비율 · 원문 p.18-19",
+ tags:["서류형","50·30·20","수능최저 없음"],
+ doc:`<div class="docBadge">서류종합평가 / 원문 p.18-19</div><h2>인하미래인재 서류형 평가모형</h2>
+ <div class="sourceBox"><p><b>평가요소 및 비율</b></p><ul><li><span class="mark">기초학업역량 50%</span> : 학업능력 30, 학습태도 20</li><li><span class="mark">진로탐구역량 30%</span> : 진로관심 10, 탐구역량 20</li><li><span class="mark">공동체역량 20%</span> : 성실, 리더십, 배려, 협업 등</li></ul><p>인하미래인재(서류형)는 일괄합산 서류종합평가 100으로 운영됩니다.</p></div>`,
+ analysis:["서류형은 기초학업역량의 비중이 가장 큽니다. 따라서 수업 참여, 교과 성취, 학습태도 기록을 우선 확인해야 합니다.","진로탐구역량은 30%지만 학생의 성장 서사를 만드는 핵심 축입니다. 관심과 탐구가 구체적일수록 강점이 됩니다.","공동체역량은 20%로, 성실·리더십·배려·협업이 생활기록부 전반에 반복되는지 확인합니다."],
+ point:["원포인트 1: 서류형 상담에서는 ‘기초학업 50’ 때문에 학업기록을 먼저 점검합니다.","원포인트 2: 진로탐구와 공동체역량은 학업기록에 의미를 붙이는 해석 축입니다."]},
+ {label:"면접형 구조 · p.18-19", type:"참고", title:"면접형은 서류 1단계 후 면접 30%", stage:"면접형 구조 · 원문 p.18-19",
+ tags:["면접형","서류 70","면접 30"],
+ doc:`<div class="docBadge">인하미래인재 면접형 / 원문 p.18-19</div><h2>면접형의 기본 구조</h2><div class="sourceBox"><p>인하미래인재(면접형)는 1단계에서 서류종합평가 100으로 일정 배수를 선발하고, 2단계에서 1단계 성적 70 + 면접평가 30으로 평가합니다.</p><p>수능최저학력기준은 적용하지 않습니다.</p></div><div class="quote">※ 이 파일은 상담용 서류 읽기 중심으로 제작했기 때문에 면접 예시는 깊게 다루지 않았습니다.</div>`,
+ analysis:["면접형도 핵심은 먼저 서류입니다. 면접은 학교생활기록부 기반 확인면접이므로, 서류 속 주요 활동을 본인이 설명할 수 있어야 합니다.","학생 상담에서는 ‘기록된 활동을 본인 언어로 설명할 수 있는지’를 확인하면 좋습니다.","다만 본 HTML은 선생님 상담자료 목적에 맞춰 서류 읽기와 평가요소 이해를 중심으로 구성했습니다."],
+ point:["원포인트 1: 면접 준비는 새로운 스펙 만들기가 아니라 기록 이해에서 출발합니다.","원포인트 2: 학생이 활동의 동기·과정·배움을 말할 수 있어야 합니다."]}
+];
+let current=0,scale=1;
+const list=document.getElementById('caseList'), doc=document.getElementById('doc'), tags=document.getElementById('tags'), aTitle=document.getElementById('aTitle'), aBody=document.getElementById('analysisBody'), stageTitle=document.getElementById('stageTitle');
+function renderList(){list.innerHTML=cases.map((c,i)=>`<button class="case ${i===current?'active':''}" onclick="setCase(${i})"><span class="tag">${c.type}</span><strong>${c.title}</strong><small>${c.label}</small></button>`).join('')}
+function setCase(i){current=i;scale=1;const c=cases[i];stageTitle.textContent=c.stage;doc.innerHTML=c.doc;doc.style.transform='scale(1)';tags.innerHTML=c.tags.map(t=>`<span>${t}</span>`).join('');aTitle.textContent=c.title;aBody.innerHTML=c.analysis.map((p,idx)=>`<div class="lesson"><h3>${idx+1}. 사정관 관점으로 읽기</h3><p>${p}</p></div>`).join('')+`<div class="lesson point"><h3>원포인트 레슨</h3>${c.point.map(p=>`<p style="margin-bottom:10px"><span class="chip">${p.split(':')[0]}</span> ${p.includes(':')?p.split(':').slice(1).join(':'):p}</p>`).join('')}</div>`;renderList()}
+function zoom(d){scale=Math.max(.7,Math.min(1.8,scale+d));doc.style.transform=`scale(${scale})`}
+function resetZoom(){scale=1;doc.style.transform='scale(1)';document.getElementById('viewer').scrollTo(0,0)}
+function bigView(){document.querySelector('.stage').scrollIntoView({behavior:'smooth',block:'start'});zoom(.15)}
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById(b.dataset.tab).classList.add('active')});
+setCase(0);
+</script>
+
+<style id="recommendedCourseStyle">
+.rc-fab{position:fixed;right:22px;bottom:86px;z-index:99998;border:0;border-radius:999px;padding:13px 18px;font-weight:1000;letter-spacing:-.02em;background:linear-gradient(135deg,#fff36e,#9affea);color:#071c1b;box-shadow:0 18px 46px rgba(0,0,0,.28);cursor:pointer;display:flex;gap:8px;align-items:center}
+.rc-fab:hover{transform:translateY(-2px);filter:saturate(1.08)}
+.rc-window{position:fixed;right:28px;top:132px;width:min(720px,calc(100vw - 36px));height:min(620px,calc(100vh - 170px));min-width:320px;min-height:300px;z-index:99999;background:rgba(255,255,255,.96);color:#14202a;border:1px solid rgba(0,0,0,.12);border-radius:22px;box-shadow:0 28px 90px rgba(0,0,0,.38);overflow:hidden;display:none;resize:both;backdrop-filter:blur(14px)}
+.rc-window.open{display:flex;flex-direction:column;animation:rcPop .22s ease both}@keyframes rcPop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+.rc-head{height:58px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 12px 0 18px;background:linear-gradient(90deg,#061b1a,#0b5e63);color:#fff;cursor:move;user-select:none}
+.rc-head b{font-size:18px;letter-spacing:-.04em}.rc-head small{opacity:.85;font-weight:800}.rc-actions{display:flex;gap:6px}.rc-actions button{border:0;border-radius:999px;padding:8px 10px;font-weight:1000;cursor:pointer;background:rgba(255,255,255,.16);color:#fff}.rc-actions button:hover{background:rgba(255,255,255,.28)}
+.rc-body{padding:16px;overflow:auto;flex:1;background:linear-gradient(135deg,#fbfffd,#fffdf1)}.rc-source{font-size:12px;line-height:1.5;color:#54626f;background:#eef9ff;border:1px solid #cfeefc;border-radius:14px;padding:10px 12px;margin-bottom:12px;font-weight:800}.rc-source b{color:#0b5e63}.rc-tools{display:flex;gap:8px;align-items:center;margin-bottom:12px;flex-wrap:wrap}.rc-search{flex:1;min-width:180px;border:1px solid #d6e3e6;border-radius:999px;padding:12px 14px;font-weight:800;outline:none;background:#fff}.rc-count{border-radius:999px;background:#10252a;color:#fff;padding:10px 12px;font-size:12px;font-weight:1000}.rc-table-wrap{border:1px solid #d9e6e2;border-radius:16px;overflow:auto;background:#fff}.rc-table{width:100%;border-collapse:collapse;font-size:13px;min-width:760px}.rc-table th{position:sticky;top:0;background:#0b5e63;color:#fff;text-align:left;padding:11px 10px;z-index:1;white-space:nowrap}.rc-table td{border-bottom:1px solid #edf2f0;padding:10px;vertical-align:top;line-height:1.55}.rc-table tr:hover td{background:#fffbe6}.rc-chip{display:inline-block;border-radius:999px;background:#fff2a8;color:#604500;padding:4px 8px;font-size:11px;font-weight:1000;margin:1px 3px 3px 0}.rc-chip.rec{background:#dcfff5;color:#006b58}.rc-empty{padding:22px;border-radius:18px;background:#fff8d8;border:1px solid #ffe08a;line-height:1.7;font-weight:850;color:#4a3a16}.rc-resize-note{font-size:11px;color:#69737c;margin-top:10px;line-height:1.5}.rc-mini{font-size:12px;color:#e8fffb;white-space:nowrap}
+@media (max-width:720px){.rc-fab{right:14px;bottom:74px;padding:12px 14px;font-size:13px}.rc-window{left:10px!important;right:auto!important;top:86px!important;width:calc(100vw - 20px)!important;height:calc(100vh - 120px)!important;min-width:0;border-radius:18px}.rc-head{height:54px}.rc-head b{font-size:16px}.rc-table{font-size:12px;min-width:700px}.rc-source{font-size:11px}}
+</style>
+
+<button class="rc-fab" type="button" id="rcOpenBtn" title="권장과목 팝업 열기">📚 권장과목 보기</button>
+<div class="rc-window" id="rcWindow" role="dialog" aria-label="인하대 권장과목 팝업">
+  <div class="rc-head" id="rcDragHandle"><div><b>인하대 권장과목</b><br><small>몰입극장 위에서 함께 보는 이동·크기조절 팝업</small></div><div class="rc-actions"><button id="rcCenterBtn" type="button">가운데</button><button id="rcCloseBtn" type="button">닫기</button></div></div>
+  <div class="rc-body">
+    <div class="rc-source"><b>출처</b> 2028학년도 권역별 대학별 권장과목(어디가) · 핵심과목은 필수적 이수 권장, 권장과목은 가급적 이수 권장 과목입니다.</div>
+    <div class="rc-tools"><input class="rc-search" id="rcSearch" placeholder="모집단위·과목 검색"/><span class="rc-count" id="rcCount"></span></div>
+    <div id="rcContent"></div>
+    <div class="rc-resize-note">※ 팝업 상단을 잡고 이동할 수 있고, 오른쪽 아래 모서리로 크기를 조절할 수 있습니다.</div>
+  </div>
+</div>
+<script id="recommendedCourseScript">
+(function(){
+  const RC_DATA = [{"region": "수도권", "area": "인천", "university": "인하대", "unit": "공과대학 · 기계공학과", "core": "물리학", "recommended": "화학", "note": "*교과 영역은 내용 상위계가 뚜렷한 특성을 지닌 과학 교과 영역을 중심으로 안내함.\n -수학 교과: 대수, 미적분Ⅰ, 확률과 통계 교과목 이수를 권장하며, 공과대학의 경우 기하 교과목도 포함하여 이수할 것을 권장함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "공과대학 · 전기전자공학부", "core": "물리학", "recommended": "화학", "note": "*교과 영역은 내용 상위계가 뚜렷한 특성을 지닌 과학 교과 영역을 중심으로 안내함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "공과대학 · 반도체시스템공학과", "core": "물리학", "recommended": "화학", "note": "*교과 영역은 내용 상위계가 뚜렷한 특성을 지닌 과학 교과 영역을 중심으로 안내함.\n -수학 교과: 대수, 미적분Ⅰ, 확률과 통계 교과목 이수를 권장하며, 공과대학의 경우 기하 교과목도 포함하여 이수할 것을 권장함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "공과대학 · 항공우주공학과", "core": "물리학", "recommended": "화학,  지구과학", "note": "*교과 영역은 내용 상위계가 뚜렷한 특성을 지닌 과학 교과 영역을 중심으로 안내함.\n -수학 교과: 대수, 미적분Ⅰ, 확률과 통계 교과목 이수를 권장하며, 공과대학의 경우 기하 교과목도 포함하여 이수할 것을 권장함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "공과대학 · 조선해양공학과", "core": "물리학", "recommended": "화학,  지구과학", "note": "*교과 영역은 내용 상위계가 뚜렷한 특성을 지닌 과학 교과 영역을 중심으로 안내함.\n -수학 교과: 대수, 미적분Ⅰ, 확률과 통계 교과목 이수를 권장하며, 공과대학의 경우 기하 교과목도 포함하여 이수할 것을 권장함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "공과대학 · 사회인프라공학과", "core": "물리학", "recommended": "화학, 지구과학", "note": "*교과 영역은 내용 상위계가 뚜렷한 특성을 지닌 과학 교과 영역을 중심으로 안내함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "공과대학 · 건축학부", "core": "물리학", "recommended": "화학, 지구과학", "note": "*교과 영역은 내용 상위계가 뚜렷한 특성을 지닌 과학 교과 영역을 중심으로 안내함.\n -수학 교과: 대수, 미적분Ⅰ, 확률과 통계 교과목 이수를 권장하며, 공과대학의 경우 기하 교과목도 포함하여 이수할 것을 권장함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "공과대학 · 화학공학과", "core": "화학", "recommended": "물리학", "note": "*교과 영역은 내용 상위계가 뚜렷한 특성을 지닌 과학 교과 영역을 중심으로 안내함.\n -수학 교과: 대수, 미적분Ⅰ, 확률과 통계 교과목 이수를 권장하며, 공과대학의 경우 기하 교과목도 포함하여 이수할 것을 권장함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "공과대학 · 고분자공학과", "core": "화학", "recommended": "물리학", "note": "*교과 영역은 내용 상위계가 뚜렷한 특성을 지닌 과학 교과 영역을 중심으로 안내함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "공과대학 · 신소재공학과", "core": "화학", "recommended": "물리학", "note": "*교과 영역은 내용 상위계가 뚜렷한 특성을 지닌 과학 교과 영역을 중심으로 안내함.\n -수학 교과: 대수, 미적분Ⅰ, 확률과 통계 교과목 이수를 권장하며, 공과대학의 경우 기하 교과목도 포함하여 이수할 것을 권장함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "공과대학 · 이차전지융합학과", "core": "화학", "recommended": "물리학", "note": "*교과 영역은 내용 상위계가 뚜렷한 특성을 지닌 과학 교과 영역을 중심으로 안내함.\n -수학 교과: 대수, 미적분Ⅰ, 확률과 통계 교과목 이수를 권장하며, 공과대학의 경우 기하 교과목도 포함하여 이수할 것을 권장함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "공과대학 · 환경공학과", "core": "화학", "recommended": "생명과학", "note": "*교과 영역은 내용 상위계가 뚜렷한 특성을 지닌 과학 교과 영역을 중심으로 안내함.\n -수학 교과: 대수, 미적분Ⅰ, 확률과 통계 교과목 이수를 권장하며, 공과대학의 경우 기하 교과목도 포함하여 이수할 것을 권장함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "공과대학 · 에너지자원공학과", "core": "-", "recommended": "물리, 화학, 지구과학", "note": "*교과 영역은 내용 상위계가 뚜렷한 특성을 지닌 과학 교과 영역을 중심으로 안내함.\n -수학 교과: 대수, 미적분Ⅰ, 확률과 통계 교과목 이수를 권장하며, 공과대학의 경우 기하 교과목도 포함하여 이수할 것을 권장함.\n권장 교과 영역을 제시하지 않은 자연계열 일부 학과 및 인문·예체능계열의 경우는 학생 개개인의 진로와 적성을 고려하여 자유롭게 이수하기를 권장함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "공과대학 · 산업경영공학과", "core": "-", "recommended": "-", "note": "권장 교과 영역을 제시하지 않은 자연계열 일부 학과 및 인문·예체능계열의 경우는 학생 개개인의 진로와 적성을 고려하여 자유롭게 이수하기를 권장함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "공과대학 · 공간정보공학과", "core": "-", "recommended": "-", "note": "권장 교과 영역을 제시하지 않은 자연계열 일부 학과 및 인문·예체능계열의 경우는 학생 개개인의 진로와 적성을 고려하여 자유롭게 이수하기를 권장함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "소프트웨어융합대학 · 스마트모빌리티공학과", "core": "물리학", "recommended": "화학", "note": "*교과 영역은 내용 상위계가 뚜렷한 특성을 지닌 과학 교과 영역을 중심으로 안내함.\n -수학 교과: 대수, 미적분Ⅰ, 확률과 통계 교과목 이수를 권장하며, 공과대학의 경우 기하 교과목도 포함하여 이수할 것을 권장함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "소프트웨어융합대학 · 인공지능학과", "core": "-", "recommended": "-", "note": "권장 교과 영역을 제시하지 않은 자연계열 일부 학과 및 인문·예체능계열의 경우는 학생 개개인의 진로와 적성을 고려하여 자유롭게 이수하기를 권장함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "소프트웨어융합대학 · 데이터사이언스학과", "core": "-", "recommended": "-", "note": "권장 교과 영역을 제시하지 않은 자연계열 일부 학과 및 인문·예체능계열의 경우는 학생 개개인의 진로와 적성을 고려하여 자유롭게 이수하기를 권장함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "소프트웨어융합대학 · 디자인테크놀로지학과", "core": "-", "recommended": "-", "note": "권장 교과 영역을 제시하지 않은 자연계열 일부 학과 및 인문·예체능계열의 경우는 학생 개개인의 진로와 적성을 고려하여 자유롭게 이수하기를 권장함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "소프트웨어융합대학 · 컴퓨터공학과", "core": "-", "recommended": "-", "note": "권장 교과 영역을 제시하지 않은 자연계열 일부 학과 및 인문·예체능계열의 경우는 학생 개개인의 진로와 적성을 고려하여 자유롭게 이수하기를 권장함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "자연과학대학 · 물리학과", "core": "물리학", "recommended": "-", "note": "*교과 영역은 내용 상위계가 뚜렷한 특성을 지닌 과학 교과 영역을 중심으로 안내함.\n -수학 교과: 대수, 미적분Ⅰ, 확률과 통계 교과목 이수를 권장하며, 공과대학의 경우 기하 교과목도 포함하여 이수할 것을 권장함. \n권장 교과 영역을 제시하지 않은 자연계열 일부 학과 및 인문·예체능계열의 경우는 학생 개개인의 진로와 적성을 고려하여 자유롭게 이수하기를 권장함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "자연과학대학 · 화학과", "core": "화학", "recommended": "-", "note": "*교과 영역은 내용 상위계가 뚜렷한 특성을 지닌 과학 교과 영역을 중심으로 안내함.\n -수학 교과: 대수, 미적분Ⅰ, 확률과 통계 교과목 이수를 권장하며, 공과대학의 경우 기하 교과목도 포함하여 이수할 것을 권장함. \n권장 교과 영역을 제시하지 않은 자연계열 일부 학과 및 인문·예체능계열의 경우는 학생 개개인의 진로와 적성을 고려하여 자유롭게 이수하기를 권장함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "자연과학대학 · 해양과학과", "core": "-", "recommended": "화학, 생명과학, 지구과학", "note": "*교과 영역은 내용 상위계가 뚜렷한 특성을 지닌 과학 교과 영역을 중심으로 안내함.\n -수학 교과: 대수, 미적분Ⅰ, 확률과 통계 교과목 이수를 권장하며, 공과대학의 경우 기하 교과목도 포함하여 이수할 것을 권장함. \n권장 교과 영역을 제시하지 않은 자연계열 일부 학과 및 인문·예체능계열의 경우는 학생 개개인의 진로와 적성을 고려하여 자유롭게 이수하기를 권장함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "자연과학대학 · 식품영양학과", "core": "생명과학", "recommended": "화학", "note": "*교과 영역은 내용 상위계가 뚜렷한 특성을 지닌 과학 교과 영역을 중심으로 안내함.\n -수학 교과: 대수, 미적분Ⅰ, 확률과 통계 교과목 이수를 권장하며, 공과대학의 경우 기하 교과목도 포함하여 이수할 것을 권장함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "자연과학대학 · 수학과", "core": "-", "recommended": "-", "note": "권장 교과 영역을 제시하지 않은 자연계열 일부 학과 및 인문·예체능계열의 경우는 학생 개개인의 진로와 적성을 고려하여 자유롭게 이수하기를 권장함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "자연과학대학 · 통계학과", "core": "-", "recommended": "-", "note": "권장 교과 영역을 제시하지 않은 자연계열 일부 학과 및 인문·예체능계열의 경우는 학생 개개인의 진로와 적성을 고려하여 자유롭게 이수하기를 권장함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "의과대학 · 의예과", "core": "생명과학", "recommended": "화학", "note": "*교과 영역은 내용 상위계가 뚜렷한 특성을 지닌 과학 교과 영역을 중심으로 안내함.\n -수학 교과: 대수, 미적분Ⅰ, 확률과 통계 교과목 이수를 권장하며, 공과대학의 경우 기하 교과목도 포함하여 이수할 것을 권장함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "간호대학 · 간호학과", "core": "생명과학", "recommended": "화학", "note": "*교과 영역은 내용 상위계가 뚜렷한 특성을 지닌 과학 교과 영역을 중심으로 안내함.\n -수학 교과: 대수, 미적분Ⅰ, 확률과 통계 교과목 이수를 권장하며, 공과대학의 경우 기하 교과목도 포함하여 이수할 것을 권장함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "바이오시스템융합학부 · 생명공학과", "core": "생명과학", "recommended": "화학", "note": "*교과 영역은 내용 상위계가 뚜렷한 특성을 지닌 과학 교과 영역을 중심으로 안내함.\n -수학 교과: 대수, 미적분Ⅰ, 확률과 통계 교과목 이수를 권장하며, 공과대학의 경우 기하 교과목도 포함하여 이수할 것을 권장함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "바이오시스템융합학부 · 생명과학과", "core": "생명과학", "recommended": "화학", "note": "*교과 영역은 내용 상위계가 뚜렷한 특성을 지닌 과학 교과 영역을 중심으로 안내함.\n -수학 교과: 대수, 미적분Ⅰ, 확률과 통계 교과목 이수를 권장하며, 공과대학의 경우 기하 교과목도 포함하여 이수할 것을 권장함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "바이오시스템융합학부 · 첨단바이오의약학과", "core": "생명과학", "recommended": "화학", "note": "*교과 영역은 내용 상위계가 뚜렷한 특성을 지닌 과학 교과 영역을 중심으로 안내함.\n -수학 교과: 대수, 미적분Ⅰ, 확률과 통계 교과목 이수를 권장하며, 공과대학의 경우 기하 교과목도 포함하여 이수할 것을 권장함."}, {"region": "수도권", "area": "인천", "university": "인하대", "unit": "바이오시스템융합학부 · 바이오식품공학과", "core": "생명과학", "recommended": "화학", "note": "*교과 영역은 내용 상위계가 뚜렷한 특성을 지닌 과학 교과 영역을 중심으로 안내함.\n -수학 교과: 대수, 미적분Ⅰ, 확률과 통계 교과목 이수를 권장하며, 공과대학의 경우 기하 교과목도 포함하여 이수할 것을 권장함."}];
+  const uniName = "인하대";
+  const win = document.getElementById('rcWindow');
+  const openBtn = document.getElementById('rcOpenBtn');
+  const closeBtn = document.getElementById('rcCloseBtn');
+  const centerBtn = document.getElementById('rcCenterBtn');
+  const handle = document.getElementById('rcDragHandle');
+  const search = document.getElementById('rcSearch');
+  const content = document.getElementById('rcContent');
+  const count = document.getElementById('rcCount');
+  function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+  function chipList(text, cls){
+    const t=String(text||'-').trim(); if(!t || t==='-' || t==='None') return '<span style="color:#899">-</span>';
+    return t.split(/[\s,，·\/]+/g).map(x=>x.trim()).filter(Boolean).map(x=>`<span class="rc-chip ${cls||''}">${esc(x)}</span>`).join('');
+  }
+  function render(){
+    const q=(search?.value||'').trim().toLowerCase();
+    const rows=RC_DATA.filter(r=>[r.unit,r.core,r.recommended,r.note].join(' ').toLowerCase().includes(q));
+    count.textContent = RC_DATA.length ? `${rows.length} / ${RC_DATA.length}개` : '자료 없음';
+    if(!RC_DATA.length){content.innerHTML=`<div class="rc-empty">${esc(uniName)} 권장과목 데이터가 업로드된 ‘2028학년도 권역별 대학별 권장과목(어디가)’ 자료에서 확인되지 않았습니다.<br>대학별 모집요강 또는 어디가 원문을 추가 확인해 주세요.</div>`;return;}
+    content.innerHTML = `<div class="rc-table-wrap"><table class="rc-table"><thead><tr><th>모집단위</th><th>핵심과목</th><th>권장과목</th><th>비고</th></tr></thead><tbody>${rows.map(r=>`<tr><td><b>${esc(r.unit)}</b></td><td>${chipList(r.core,'core')}</td><td>${chipList(r.recommended,'rec')}</td><td>${esc(r.note||'-')}</td></tr>`).join('')}</tbody></table></div>`;
+  }
+  function openWin(){win.classList.add('open'); render();}
+  function closeWin(){win.classList.remove('open');}
+  function centerWin(){win.style.left = Math.max(10,(innerWidth-win.offsetWidth)/2)+'px'; win.style.top = Math.max(70,(innerHeight-win.offsetHeight)/2)+'px'; win.style.right='auto';}
+  openBtn?.addEventListener('click',openWin); closeBtn?.addEventListener('click',closeWin); centerBtn?.addEventListener('click',centerWin); search?.addEventListener('input',render);
+  let drag=false,sx=0,sy=0,sl=0,st=0;
+  handle?.addEventListener('pointerdown',e=>{ if(e.target.tagName==='BUTTON') return; drag=true; handle.setPointerCapture(e.pointerId); const rect=win.getBoundingClientRect(); sx=e.clientX; sy=e.clientY; sl=rect.left; st=rect.top; win.style.right='auto'; });
+  handle?.addEventListener('pointermove',e=>{ if(!drag) return; const nx=Math.min(Math.max(4,sl+e.clientX-sx), innerWidth-80); const ny=Math.min(Math.max(4,st+e.clientY-sy), innerHeight-60); win.style.left=nx+'px'; win.style.top=ny+'px'; });
+  handle?.addEventListener('pointerup',()=>drag=false); handle?.addEventListener('pointercancel',()=>drag=false);
+  window.addEventListener('keydown',e=>{if(e.key==='Escape') closeWin();});
+})();
+</script>
+</body>
+</html>

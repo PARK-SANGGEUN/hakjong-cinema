@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>모두의 학생부종합전형 가이드북 사례분석 몰입 극장</title>
+<meta name="description" content="대학별 학생부종합전형 가이드북을 영화관처럼 몰입해서 읽는 상담·연수용 웹 자료" />
+<style>
+:root { --bg:#050b12; --ink:#f7fbff; --muted:#b8c7d8; --line:rgba(255,255,255,.14); --gold:#ffe676; --mint:#91ffe8; --blue:#63b8ff; --card:rgba(255,255,255,.075); }
+*{box-sizing:border-box} html,body{margin:0;min-height:100%;font-family:Pretendard,"Noto Sans KR",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--ink);scroll-behavior:smooth} body{overflow-x:hidden}
+.cinema-bg{position:fixed;inset:0;z-index:-5;background:radial-gradient(circle at 12% -10%, rgba(0,255,205,.22), transparent 32%),radial-gradient(circle at 92% 5%, rgba(255,218,77,.20), transparent 30%),radial-gradient(circle at 50% 110%, rgba(75,129,255,.20), transparent 42%),linear-gradient(135deg,#040a10,#061b22 45%,#020407 100%);}
+.cinema-bg:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(#000,transparent 78%)}
+.cinema-bg:after{content:"";position:absolute;inset:-10%;background:conic-gradient(from 220deg at 50% -20%, transparent, rgba(255,255,255,.12), transparent 18%, transparent 65%, rgba(255,230,118,.10), transparent 78%);filter:blur(1px);animation:beam 12s linear infinite;opacity:.7} @keyframes beam{to{transform:rotate(360deg)}}
+.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:16px;padding:18px clamp(18px,4vw,56px);backdrop-filter:blur(20px);background:linear-gradient(90deg,rgba(0,0,0,.62),rgba(4,30,35,.42));border-bottom:1px solid var(--line)}
+.logo{width:52px;height:52px;border-radius:17px;display:grid;place-items:center;background:linear-gradient(135deg,#fff16e,#a8ffe8);color:#031514;font-weight:1000;font-size:26px;box-shadow:0 15px 40px rgba(255,230,118,.20)} .brand{min-width:0;flex:1}
+.brand h1{margin:0;font-size:clamp(22px,2.6vw,42px);letter-spacing:-.07em;line-height:1.08;white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .copy{display:inline-flex;margin-top:7px;background:white;color:#0b2424;border-radius:999px;padding:7px 16px;font-weight:950;font-size:14px}
+.nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end} .nav a{color:#e9fbff;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:10px 14px;background:rgba(255,255,255,.08);font-weight:850}
+.hero{min-height:calc(100vh - 90px);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);gap:34px;align-items:center;padding:clamp(28px,5vw,72px) clamp(18px,4vw,56px)}
+.kicker{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(255,230,118,.32);background:rgba(255,230,118,.10);color:#fff0a4;border-radius:999px;padding:9px 14px;font-weight:1000;letter-spacing:.08em;font-size:13px}
+.title{font-size:clamp(42px,7vw,104px);line-height:.95;margin:20px 0 18px;letter-spacing:-.09em;font-weight:1000;text-wrap:balance} .title span{background:linear-gradient(90deg,#fff,#fff1a6 45%,#a7fff1 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:clamp(17px,1.35vw,22px);line-height:1.85;color:#d8e8f1;font-weight:720;max-width:920px} .highlight{background:linear-gradient(transparent 58%,rgba(255,230,118,.55) 0);color:white;font-weight:950}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px} .btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;border-radius:999px;padding:15px 22px;font-weight:1000;transition:.25s;border:1px solid var(--line)} .btn.primary{background:linear-gradient(135deg,#ffe76a,#8dffe7);color:#061b1b;box-shadow:0 18px 46px rgba(126,255,227,.18)} .btn.ghost{color:#f7fbff;background:rgba(255,255,255,.08)}
+.poster{position:relative;border-radius:38px;padding:18px;background:linear-gradient(135deg,rgba(255,255,255,.15),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.18);box-shadow:0 35px 110px rgba(0,0,0,.45);overflow:hidden;min-height:520px} .poster:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 20%,rgba(255,230,118,.18),transparent 38%);} .screen{position:relative;height:100%;border-radius:28px;background:#030608;overflow:hidden;border:10px solid rgba(255,255,255,.08);box-shadow:inset 0 0 60px rgba(255,255,255,.08)} .marquee{height:52px;background:linear-gradient(90deg,#021516,#063b3c);display:flex;align-items:center;gap:16px;padding:0 18px;color:#fff4b8;font-weight:1000;white-space:nowrap;overflow:hidden} .marquee span{animation:ticker 16s linear infinite} @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-120%)}}
+.preview{padding:26px;display:grid;gap:14px} .preview-card{position:relative;background:linear-gradient(135deg,rgba(255,255,255,.98),rgba(232,255,250,.96));color:#0b2326;border-radius:22px;padding:20px;border:1px solid rgba(255,255,255,.7);box-shadow:0 16px 44px rgba(0,0,0,.22);animation:float 5s ease-in-out infinite} .preview-card:nth-child(2){animation-delay:.9s;transform:translateX(22px)} .preview-card:nth-child(3){animation-delay:1.7s;transform:translateX(-10px)} @keyframes float{50%{translate:0 -8px}} .preview-card b{display:block;font-size:22px;letter-spacing:-.06em;margin-bottom:8px} .preview-card p{margin:0;line-height:1.6;color:#335}
+.section{padding:20px clamp(18px,4vw,56px) 70px} .section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:18px} .section h2{margin:0;font-size:clamp(30px,4vw,58px);letter-spacing:-.08em} .search{width:min(420px,100%);border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.09);color:#fff;border-radius:999px;padding:14px 18px;font-size:16px;outline:none} .search::placeholder{color:#b8c7d8}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px} .uni-card{position:relative;min-height:310px;border:1px solid rgba(255,255,255,.16);background:linear-gradient(160deg,rgba(255,255,255,.13),rgba(255,255,255,.055));border-radius:30px;padding:22px;overflow:hidden;box-shadow:0 20px 70px rgba(0,0,0,.25);transition:.28s;display:flex;flex-direction:column} .uni-card:hover{transform:translateY(-8px);border-color:rgba(255,255,255,.36);box-shadow:0 28px 90px rgba(0,0,0,.38)} .card-glow{position:absolute;inset:auto -30% -35% auto;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle,var(--accent2),transparent 66%);opacity:.45;filter:blur(3px)} .card-top{position:relative;display:flex;justify-content:space-between;gap:8px;margin-bottom:26px} .episode,.tone{border-radius:999px;padding:7px 10px;font-size:12px;font-weight:1000} .episode{background:var(--accent);color:white} .tone{background:rgba(255,255,255,.85);color:#10232a} .uni-card h3{position:relative;margin:0;font-size:clamp(24px,2vw,34px);letter-spacing:-.07em;line-height:1.05} .en{position:relative;margin:8px 0 0;color:#bdebf0;font-weight:800} .summary{position:relative;margin:18px 0 0;color:#e3edf2;line-height:1.7;font-weight:650} .chips{position:relative;display:flex;gap:7px;flex-wrap:wrap;margin-top:auto;padding-top:22px} .chips span{font-size:12px;font-weight:950;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 9px;background:rgba(255,255,255,.08)} .watch{position:relative;margin-top:16px;text-decoration:none;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.95);color:#06191c;border-radius:16px;padding:13px 15px;font-weight:1000} .watch b{font-size:20px}
+.footer{padding:24px clamp(18px,4vw,56px) 40px;color:#b8c7d8;border-top:1px solid var(--line);background:rgba(0,0,0,.18)} .footer code{background:rgba(255,255,255,.08);padding:3px 6px;border-radius:8px;color:#fff}
+@media (max-width:1200px){.hero{grid-template-columns:1fr}.poster{min-height:430px}.grid{grid-template-columns:repeat(2,1fr)}} @media (max-width:720px){.topbar{align-items:flex-start}.logo{width:44px;height:44px}.brand h1{white-space:normal;font-size:22px}.nav{display:none}.hero{padding-top:28px}.title{font-size:48px}.poster{min-height:360px;border-radius:26px}.grid{grid-template-columns:1fr}.section-head{display:block}.search{margin-top:14px;width:100%}}
+
+/* refined opening screen */
+.topbar{min-height:92px;padding:14px clamp(18px,3vw,48px)}
+.brand h1{font-size:clamp(24px,2.15vw,38px);letter-spacing:-.055em;max-width:980px}.copy{padding:6px 15px;font-size:13px}.nav a{padding:11px 16px;background:rgba(255,255,255,.11)}
+.hero{min-height:calc(100vh - 92px);grid-template-columns:minmax(0,0.95fr) minmax(420px,.9fr);gap:42px;padding:clamp(34px,5vw,76px) clamp(22px,4vw,58px);align-items:center}.hero>div:first-child{max-width:790px}.kicker{font-size:12px;padding:8px 13px;letter-spacing:.07em}.title{font-size:clamp(46px,5.8vw,86px);line-height:1.02;letter-spacing:-.075em;margin:22px 0 18px;white-space:pre-line;max-width:820px}.lead{font-size:clamp(17px,1.16vw,20px);line-height:1.72;max-width:760px;color:#e2eef4}.hero-actions{margin-top:24px}.btn{padding:14px 20px}.poster{min-height:420px;max-width:760px}.preview{padding:24px}.preview-card{padding:18px 20px}.preview-card b{font-size:20px}.preview-card p{font-size:15px}.section{padding-top:38px}.section h2{font-size:clamp(34px,3.6vw,54px)}
+@media (max-width:1200px){.hero{grid-template-columns:1fr;gap:26px}.hero>div:first-child{max-width:900px}.title{font-size:clamp(44px,8vw,78px)}.poster{max-width:none;min-height:360px}}
+@media (max-width:720px){.topbar{min-height:84px;padding:12px 16px}.copy{font-size:12px}.hero{padding:28px 18px}.title{font-size:42px}.lead{font-size:16px}.poster{display:none}.nav{display:flex}.nav a{font-size:13px;padding:9px 12px}}
+
+
+/* v3 title rhythm + home navigation */
+.title{max-width:760px;line-height:1.04}
+@media (max-width:720px){.title{font-size:40px;line-height:1.08}.hero-actions .btn{width:100%;justify-content:center}}
+
+/* v8 opening credit: subtle glass box */
+.opening-credit{
+  margin:20px 0 12px;
+  display:grid;
+  gap:10px;
+  max-width:760px;
+  width:min(760px,100%);
+  padding:16px 18px;
+  color:#fff8ca;
+  border:1px solid rgba(255,230,118,.36);
+  border-radius:22px;
+  background:linear-gradient(135deg,rgba(255,255,255,.105),rgba(255,255,255,.045));
+  box-shadow:0 18px 50px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.16), 0 0 34px rgba(255,215,120,.10);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  text-shadow:0 0 18px rgba(255,215,120,.22);
+  position:relative;
+  overflow:hidden;
+}
+.opening-credit:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 18% 0%,rgba(255,230,118,.16),transparent 38%);pointer-events:none}
+.credit-line{position:relative;display:flex;flex-wrap:wrap;gap:8px 13px;align-items:baseline;font-size:clamp(12px,.95vw,14px);line-height:1.55;letter-spacing:.02em;color:rgba(255,250,221,.9)}
+.credit-label{font-size:clamp(10px,.78vw,12px);letter-spacing:.18em;font-weight:1000;color:#ffe676;opacity:.96;white-space:nowrap}
+.credit-names{font-weight:820;color:rgba(255,255,255,.93)}
+.credit-names strong{color:#ffffff;font-weight:1000}
+@media (max-width:720px){.opening-credit{gap:8px;margin:16px 0 10px;padding:14px 15px;border-radius:18px}.credit-line{display:block;font-size:12px}.credit-label{display:block;margin-bottom:3px}.credit-names{display:block}}
+
+</style>
+</head><body>
+<div class="cinema-bg"></div>
+<header class="topbar"><div class="logo">劇</div><div class="brand"><h1>모두의 학생부종합전형 가이드북 사례분석 몰입 극장</h1><div class="copy">Copyright@All Teachers</div></div><nav class="nav" aria-label="빠른 이동"><a href="#library">대학별 극장 입장</a></nav></header>
+<main><section class="hero"><div><div class="kicker">ADMISSION CINEMA · COUNSELING & TRAINING</div><h2 class="title"><span>가이드북을
+장면처럼 읽는
+학종 상담 극장</span></h2><p class="lead">대학별 평가기준과 실제 사례를 <span class="highlight">원문 · 해설 · 상담 포인트</span>로 연결했습니다. 학생에게 “어디를 읽어야 하는지”를 짧고 선명하게 보여주는 상담/연수용 웹 자료입니다.</p>
+<div class="opening-credit" aria-label="제작 크레딧">
+  <div class="credit-line"><span class="credit-label">IDEA COLLABORATION</span><span class="credit-names">남양주 다산고 이용휘 · 수원 칠보고 고승준</span></div>
+  <div class="credit-line"><span class="credit-label">CINEMA DESIGN &amp; DEVELOPMENT</span><span class="credit-names"><strong>강원사대부고 박상근</strong></span></div>
+</div>
+<div class="hero-actions"><a class="btn primary" href="#library">대학별 극장 입장하기 →</a></div></div><div class="poster" aria-label="몰입 극장 미리보기"><div class="screen"><div class="marquee"><span>원문 기반 · 평가 읽기 · 사례분석 몰입극장 · 상담/연수 배포용 · GitHub Pages Ready ·&nbsp;</span><span>원문 기반 · 평가 읽기 · 사례분석 몰입극장 · 상담/연수 배포용 · GitHub Pages Ready ·&nbsp;</span></div><div class="preview"><div class="preview-card"><b>① 평가 읽기</b><p>평가요소, 세부기준, 비율을 먼저 읽고 사례를 해석합니다.</p></div><div class="preview-card"><b>② 사례 큐시트</b><p>학교별 사례를 선택하면 중앙 원문과 우측 분석이 함께 바뀝니다.</p></div><div class="preview-card"><b>③ 사정관 해설</b><p>좋은 기록의 핵심 문장과 원포인트 레슨을 상담 언어로 정리합니다.</p></div></div></div></div></section>
+<section id="library" class="section"><div class="section-head"><div><div class="kicker">UNIVERSITY EPISODES</div><h2>대학별 몰입 극장</h2></div><input class="search" id="search" placeholder="대학명 검색: 이화여대, 국민대, 동국대..." /></div><div class="grid" id="grid">
+      <article class="uni-card" style="--accent:#007f68;--accent2:#bff8e8" data-title="이화여대편 Ewha Womans University 학생부종합전형 가이드북 사례분석 몰입 극장">
+        <div class="card-glow"></div>
+        <div class="card-top">
+          <span class="episode">EP 01</span>
+          <span class="tone">민트 시네마</span>
+        </div>
+        <h3>이화여대편</h3>
+        <p class="en">Ewha Womans University</p>
+        <p class="summary">좋은 기록과 아쉬운 기록을 사정관 시선으로 읽는 원문 극장</p>
+        <div class="chips"><span>평가 읽기</span><span>사례분석 몰입극장</span><span>원문 기반</span></div>
+        <a class="watch" href="ewha.html" aria-label="이화여대편 열기">입장하기 <b>→</b></a>
+      </article>
+    
+      <article class="uni-card" style="--accent:#174078;--accent2:#e8f3ff" data-title="국민대편 Kookmin University 학생부전형 가이드 사례분석 몰입 극장">
+        <div class="card-glow"></div>
+        <div class="card-top">
+          <span class="episode">EP 02</span>
+          <span class="tone">블루 시네마</span>
+        </div>
+        <h3>국민대편</h3>
+        <p class="en">Kookmin University</p>
+        <p class="summary">전공별 사례와 평가 포인트를 원문 기준으로 연결</p>
+        <div class="chips"><span>평가 읽기</span><span>사례분석 몰입극장</span><span>원문 기반</span></div>
+        <a class="watch" href="kookmin.html" aria-label="국민대편 열기">입장하기 <b>→</b></a>
+      </article>
+    
+      <article class="uni-card" style="--accent:#8B1E2D;--accent2:#D7A53A" data-title="경희대편 Kyung Hee University 학생부전형 가이드 사례분석 몰입 극장">
+        <div class="card-glow"></div>
+        <div class="card-top">
+          <span class="episode">EP 03</span>
+          <span class="tone">버건디 골드</span>
+        </div>
+        <h3>경희대편</h3>
+        <p class="en">Kyung Hee University</p>
+        <p class="summary">사례로 보는 평가요소를 고급 매거진형으로 읽기</p>
+        <div class="chips"><span>평가 읽기</span><span>사례분석 몰입극장</span><span>원문 기반</span></div>
+        <a class="watch" href="kyunghee.html" aria-label="경희대편 열기">입장하기 <b>→</b></a>
+      </article>
+    
+      <article class="uni-card" style="--accent:#0b82d8;--accent2:#dff3ff" data-title="서울시립대편 University of Seoul 학생부종합전형 가이드북 사례분석 몰입 극장">
+        <div class="card-glow"></div>
+        <div class="card-top">
+          <span class="episode">EP 04</span>
+          <span class="tone">시티 블루</span>
+        </div>
+        <h3>서울시립대편</h3>
+        <p class="en">University of Seoul</p>
+        <p class="summary">학업·잠재·사회 역량을 도시형 블루 톤으로 분석</p>
+        <div class="chips"><span>평가 읽기</span><span>사례분석 몰입극장</span><span>원문 기반</span></div>
+        <a class="watch" href="uos.html" aria-label="서울시립대편 열기">입장하기 <b>→</b></a>
+      </article>
+    
+      <article class="uni-card" style="--accent:#d94a1b;--accent2:#fff1c7" data-title="동국대편 Dongguk University 학생부위주전형 가이드북 사례분석 몰입 극장">
+        <div class="card-glow"></div>
+        <div class="card-top">
+          <span class="episode">EP 05</span>
+          <span class="tone">브론즈 오렌지</span>
+        </div>
+        <h3>동국대편</h3>
+        <p class="en">Dongguk University</p>
+        <p class="summary">국제통상·에너지신소재 사례를 평가항목별로 읽기</p>
+        <div class="chips"><span>평가 읽기</span><span>사례분석 몰입극장</span><span>원문 기반</span></div>
+        <a class="watch" href="dongguk.html" aria-label="동국대편 열기">입장하기 <b>→</b></a>
+      </article>
+    
+      <article class="uni-card" style="--accent:#0d2b52;--accent2:#ffcf33" data-title="숭실대편 Soongsil University 학종가이드북 사례분석 몰입 극장">
+        <div class="card-glow"></div>
+        <div class="card-top">
+          <span class="episode">EP 06</span>
+          <span class="tone">SSU 옐로 블루</span>
+        </div>
+        <h3>숭실대편</h3>
+        <p class="en">Soongsil University</p>
+        <p class="summary">탐구역량 우수사례를 서류형 중심으로 분석</p>
+        <div class="chips"><span>평가 읽기</span><span>사례분석 몰입극장</span><span>원문 기반</span></div>
+        <a class="watch" href="soongsil.html" aria-label="숭실대편 열기">입장하기 <b>→</b></a>
+      </article>
+    
+      <article class="uni-card" style="--accent:#08365d;--accent2:#13b6c8" data-title="한양대 ERICA편 Hanyang ERICA 학생부종합전형 가이드북 사례분석 몰입 극장">
+        <div class="card-glow"></div>
+        <div class="card-top">
+          <span class="episode">EP 07</span>
+          <span class="tone">에리카 스카이</span>
+        </div>
+        <h3>한양대 ERICA편</h3>
+        <p class="en">Hanyang ERICA</p>
+        <p class="summary">서류형·면접형 비교와 학교생활기록부 사례 읽기</p>
+        <div class="chips"><span>평가 읽기</span><span>사례분석 몰입극장</span><span>원문 기반</span></div>
+        <a class="watch" href="erica.html" aria-label="한양대 ERICA편 열기">입장하기 <b>→</b></a>
+      </article>
+    
+      <article class="uni-card" style="--accent:#003B7A;--accent2:#9AD7FF" data-title="인하대편 Inha University 학생부종합전형 가이드북 사례분석 몰입 극장">
+        <div class="card-glow"></div>
+        <div class="card-top">
+          <span class="episode">EP 08</span>
+          <span class="tone">인하 블루</span>
+        </div>
+        <h3>인하대편</h3>
+        <p class="en">Inha University</p>
+        <p class="summary">평가기준과 학생부 읽기 관점을 상담용으로 정리</p>
+        <div class="chips"><span>평가 읽기</span><span>사례분석 몰입극장</span><span>권장과목 팝업</span></div>
+        <a class="watch" href="inha.html" aria-label="인하대편 열기">입장하기 <b>→</b></a>
+      </article>
+    </div></section></main>
+<footer class="footer">
+  <div style="display:grid;gap:14px;max-width:1100px">
+    <div><b>권장과목 팝업 출처</b><br>2028학년도 권역별 대학별 권장과목(어디가)을 학교별 팝업 자료로 연결했습니다.</div>
+    <div style="display:grid;gap:6px;color:#e8f5ff">
+      <div><b>IDEA COLLABORATION</b><br>남양주 다산고 이용휘 · 수원 칠보고 고승준</div>
+      <div><b>CINEMA DESIGN &amp; DEVELOPMENT</b><br>강원사대부고 박상근</div>
+    </div>
+  </div>
+</footer>
+<script>const search=document.getElementById('search');const cards=[...document.querySelectorAll('.uni-card')];search?.addEventListener('input',()=>{const q=search.value.trim().toLowerCase();cards.forEach(card=>{card.style.display=card.dataset.title.toLowerCase().includes(q)?'':'none';});});</script>
+</body></html>
